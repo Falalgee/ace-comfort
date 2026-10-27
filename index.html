@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0A1628" />
+  <meta name="description" content="Ace Comfort Air Conditioning & Heating — reliable HVAC repair, installation, and maintenance for homeowners in Houston, TX. Licensed & insured TACLB64349E." />
+  <title>Ace Comfort | Air Conditioning & Heating Houston</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0A1628',
+              navyDeep: '#070F1C',
+              navyCard: '#0F1D33',
+              blue: '#0066FF',
+              blueHover: '#0052CC',
+              cyan: '#38BDF8',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { overflow-x: hidden; font-feature-settings: 'cv11', 'ss01'; }
+    section[id], div[id="request-service"], div[id="financing"] { scroll-margin-top: 5.5rem; }
+
+    ::selection { background: #0066FF; color: #fff; }
+
+    :where(a, button, input, select, textarea):focus-visible {
+      outline: 2px solid #0066FF;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    @media (min-width: 1024px) {
+      ::-webkit-scrollbar { width: 12px; }
+      ::-webkit-scrollbar-track { background: #f8fafc; }
+      ::-webkit-scrollbar-thumb { background: #cbd5e1; border: 3px solid #f8fafc; border-radius: 8px; }
+      ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    }
+
+    #mobileMenuPanel { transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1); }
+    #mobileMenuBackdrop { transition: opacity 0.3s ease; }
+
+    .testimonial-slide {
+      position: absolute; inset: 0;
+      opacity: 0; transform: translateY(6px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+    }
+    .testimonial-slide.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .testimonial-dot {
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+    }
+
+    /* --- Liquid Glass Utilities --- */
+    .glass-panel-light {
+      background-color: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    .glass-panel-dark {
+      background-color: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(16px) saturate(150%);
+      -webkit-backdrop-filter: blur(16px) saturate(150%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .glass-button {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      transition: all 0.2s ease;
+    }
+    .glass-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body class="font-sans text-slate-800 bg-white antialiased">
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="fixed inset-0 z-[70] hidden" aria-hidden="true">
+    <div id="mobileMenuBackdrop" class="absolute inset-0 bg-brand-navyDeep/40 backdrop-blur-sm opacity-0" data-close-menu></div>
+    <div id="mobileMenuPanel" class="absolute top-0 right-0 h-full w-[88%] max-w-sm glass-panel-light flex flex-col translate-x-full border-l-0 border-y-0 rounded-l-2xl">
+      <div class="flex items-center justify-between px-5 h-16 border-b border-slate-900/5 shrink-0">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-md bg-brand-blue flex items-center justify-center shadow-sm">
+            <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 20h20L12 2z"/></svg>
+          </div>
+          <span class="font-semibold tracking-tight text-slate-900 text-[15px]">Ace Comfort</span>
+        </div>
+        <button data-close-menu aria-label="Close menu" class="w-9 h-9 rounded-md hover:bg-slate-900/5 flex items-center justify-center text-slate-500 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <nav class="flex-1 overflow-y-auto py-3">
+        <a href="#home" data-close-menu class="mobile-nav-link flex items-center justify-between px-5 py-3 text-[15px] font-medium text-slate-800 hover:bg-white/50 hover:text-slate-900 transition-colors">
+          <span>Home</span>
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#services" data-close-menu class="mobile-nav-link flex items-center justify-between px-5 py-3 text-[15px] font-medium text-slate-800 hover:bg-white/50 hover:text-slate-900 transition-colors">
+          <span>Services</span>
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#about" data-close-menu class="mobile-nav-link flex items-center justify-between px-5 py-3 text-[15px] font-medium text-slate-800 hover:bg-white/50 hover:text-slate-900 transition-colors">
+          <span>About</span>
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#financing" data-close-menu class="mobile-nav-link flex items-center justify-between px-5 py-3 text-[15px] font-medium text-slate-800 hover:bg-white/50 hover:text-slate-900 transition-colors">
+          <span>Financing</span>
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" data-close-menu class="mobile-nav-link flex items-center justify-between px-5 py-3 text-[15px] font-medium text-slate-800 hover:bg-white/50 hover:text-slate-900 transition-colors">
+          <span>Contact</span>
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </nav>
+
+      <div class="p-4 border-t border-slate-900/5 space-y-2 shrink-0 pb-8">
+        <a href="tel:2816585141" class="flex items-center justify-center gap-2 w-full h-10 border border-slate-900/10 hover:bg-white/60 text-slate-800 font-medium rounded-md text-[14px] transition-colors">
+          <svg class="w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          (281) 658-5141
+        </a>
+        <a href="#request-service" data-close-menu class="flex items-center justify-center w-full h-10 bg-brand-blue hover:bg-brand-blueHover text-white font-medium rounded-md text-[14px] transition-colors shadow-sm">
+          Request Service
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header id="siteHeader" class="sticky top-0 z-50 bg-white/40 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/50 shadow-[0_4px_24px_-1px_rgba(0,0,0,0.02)] transition-shadow duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-[72px] flex items-center justify-between gap-6">
+
+      <a class="flex items-center gap-2.5 shrink-0" href="#home">
+        <div class="w-8 h-8 md:w-9 md:h-9 rounded-md bg-brand-blue flex items-center justify-center shadow-sm">
+          <svg class="w-4 h-4 md:w-[18px] md:h-[18px] text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 20h20L12 2z"/></svg>
+        </div>
+        <div class="flex flex-col leading-none">
+          <span class="text-[15px] md:text-[16px] font-semibold tracking-tight text-slate-900">Ace Comfort</span>
+          <span class="text-[9px] tracking-[0.14em] uppercase font-medium text-slate-500 mt-1">Air Conditioning &amp; Heating</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 text-[14px] font-medium">
+        <a class="nav-link relative py-2 text-slate-900 transition-colors" href="#home">Home
+          <span class="absolute left-0 right-0 -bottom-[22px] h-[2px] bg-brand-blue rounded-full"></span>
+        </a>
+        <a class="nav-link relative py-2 text-slate-600 hover:text-slate-900 transition-colors" href="#services">Services</a>
+        <a class="nav-link relative py-2 text-slate-600 hover:text-slate-900 transition-colors" href="#about">About</a>
+        <a class="nav-link relative py-2 text-slate-600 hover:text-slate-900 transition-colors" href="#financing">Financing</a>
+        <a class="nav-link relative py-2 text-slate-600 hover:text-slate-900 transition-colors" href="#contact">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <a class="hidden lg:inline-flex items-center gap-2 text-[13px] font-medium text-slate-600 hover:text-slate-900 transition-colors" href="tel:2816585141">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          (281) 658-5141
+        </a>
+        <a class="hidden sm:inline-flex items-center justify-center h-9 px-3.5 bg-brand-blue hover:bg-brand-blueHover text-white rounded-md text-[13px] font-medium transition-colors shadow-sm" href="#request-service">
+          Request Service
+        </a>
+        <button id="menuToggle" aria-label="Open menu" aria-expanded="false" class="md:hidden w-9 h-9 rounded-md flex items-center justify-center text-slate-700 hover:bg-slate-900/5 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="bg-brand-navy text-white" id="home">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+
+        <div class="lg:col-span-7 text-center lg:text-left">
+          <h1 class="text-[36px] leading-[1.08] sm:text-[44px] md:text-[52px] lg:text-[58px] font-bold tracking-[-0.03em] text-white">
+            Reliable comfort.<br/>
+            <span class="text-brand-cyan">Expert HVAC care.</span>
+          </h1>
+
+          <p class="mt-5 text-[16px] sm:text-[17px] text-slate-400 max-w-xl mx-auto lg:mx-0 leading-[1.6]">
+            Heating and cooling solutions to keep your home comfortable throughout the year.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-2.5 justify-center lg:justify-start">
+            <a href="#request-service" class="inline-flex items-center justify-center gap-2 h-11 px-5 bg-brand-blue hover:bg-brand-blueHover text-white font-medium rounded-md text-[14px] transition-colors group">
+              Request Service
+              <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+            <a href="tel:2816585141" class="glass-button inline-flex items-center justify-center gap-2 h-11 px-5 text-white font-medium rounded-md text-[14px]">
+              <svg class="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              (281) 658-5141
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 relative">
+          <div class="relative p-1.5 rounded-2xl bg-white/[0.05] backdrop-blur-md ring-1 ring-white/10 shadow-2xl shadow-black/40">
+            <div class="relative rounded-xl overflow-hidden">
+              <img
+                alt="Ace Comfort HVAC technician servicing an outdoor AC condenser unit"
+                class="w-full h-auto object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9vFsvDvScl2PMwXPffqKT9rGHaSIZfVFlUyoiTJItWnXotRJTfdHrxRkE9NdbAiDPw7HOrrq75M7jsS_yaXVowjGYv_cSU9K_JcR3y-pn66mIALwl01GLNEZLQlrmcGSw3qg5RSc6zwI8CVyxDyNE1CN29HXuD-Kw74msIyOfLiVqO-vHqbm8-udRNZ0zRLUI-Z24ItOrScV_eO0Wuu2quJVRfEUkuX1HOtfzVFiW"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/40 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="bg-white border-b border-slate-200/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 md:divide-x md:divide-slate-200/70">
+
+          <div class="flex flex-col items-center text-center px-2 md:px-4">
+            <div class="w-9 h-9 rounded-lg bg-slate-50 ring-1 ring-slate-200/70 text-brand-blue flex items-center justify-center mb-3">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h4 class="font-semibold text-slate-900 text-[13px]">Licensed &amp; Insured</h4>
+            <p class="text-[12px] text-slate-500 mt-0.5">TACLB64349E</p>
+          </div>
+
+          <div class="flex flex-col items-center text-center px-2 md:px-4">
+            <div class="w-9 h-9 rounded-lg bg-slate-50 ring-1 ring-slate-200/70 text-brand-blue flex items-center justify-center mb-3">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            </div>
+            <h4 class="font-semibold text-slate-900 text-[13px]">Residential Expertise</h4>
+            <p class="text-[12px] text-slate-500 mt-0.5">Homes across Houston</p>
+          </div>
+
+          <div class="flex flex-col items-center text-center px-2 md:px-4">
+            <div class="w-9 h-9 rounded-lg bg-slate-50 ring-1 ring-slate-200/70 text-brand-blue flex items-center justify-center mb-3">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            </div>
+            <h4 class="font-semibold text-slate-900 text-[13px]">Trusted Local Team</h4>
+            <p class="text-[12px] text-slate-500 mt-0.5">Professional &amp; Reliable</p>
+          </div>
+
+          <div class="flex flex-col items-center text-center px-2 md:px-4">
+            <div class="w-9 h-9 rounded-lg bg-slate-50 ring-1 ring-slate-200/70 text-brand-blue flex items-center justify-center mb-3">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <h4 class="font-semibold text-slate-900 text-[13px]">Quality Service</h4>
+            <p class="text-[12px] text-slate-500 mt-0.5">Repair • Install • Maintain</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="py-16 sm:py-20 lg:py-24 bg-slate-50" id="services">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="max-w-2xl mb-12 lg:mb-14">
+          <h2 class="text-[28px] sm:text-[32px] md:text-[36px] font-semibold text-slate-900 tracking-[-0.02em] leading-[1.15]">
+            Heating and cooling, handled.
+          </h2>
+          <p class="mt-3 text-[15px] sm:text-[16px] text-slate-600 leading-relaxed max-w-xl">
+            Expert HVAC solutions tailored to keep your home comfortable year-round.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+
+          <a href="#request-service" class="service-card group rounded-lg border border-slate-200/80 bg-white overflow-hidden transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-[0_4px_20px_-8px_rgba(15,23,42,0.08)]">
+            <div class="aspect-[16/10] overflow-hidden bg-slate-100">
+              <img alt="AC repair service technician" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm0xA9SFtqRf3FwOKupB7uyILcJur5G42YgYUhbl2cejk0HSDtL84dfDaVDDPPvcWYaM1c-e8MsUcePgfCzxXXk6BdJ4wJxq6WQSsq_mfcZmzofxkf4_w2dZZeynpjqfJLK6HdHnaPccs-EvFjxGjw0oJVHUi4My7ldmBtHUUryP2fIvJLmKbKS3_Dv6yzgdf-gU_o9uQGlPOmxs8Znsb_FpihAS5-uR-tWU5KMeNE"/>
+            </div>
+            <div class="p-5">
+              <h3 class="text-[15px] font-semibold text-slate-900 mb-1.5">AC Repair</h3>
+              <p class="text-[13.5px] text-slate-600 leading-[1.6] mb-3">Fast, reliable AC repair to get your system back up and running.</p>
+              <span class="inline-flex items-center gap-1 text-[13px] font-medium text-brand-blue">
+                Learn more
+                <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="#request-service" class="service-card group rounded-lg border border-slate-200/80 bg-white overflow-hidden transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-[0_4px_20px_-8px_rgba(15,23,42,0.08)]">
+            <div class="aspect-[16/10] overflow-hidden bg-slate-100">
+              <img alt="HVAC installation specialists" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPDkZtLRC7vFKSAzrwyYQ5RZzaS7tHL5x-Tp0QdiYySuTcqStqoRlRtHYZLEbKMsw2v1Vcae8mE1lCUa-VYY0Avmwlbm_KDMbJjQ_49CPMOFBfBjE_WW3KjkLvKUximNPD_IQYIMp9OPWr_dGaTFZE1wxVoJ9k2cGktyzsAOlqvSnxeJ_QyD8LLabAd2_NeaVC8thwz17iPF-bir5xil7hwM4fQvR0J3e2rr3j-SVl"/>
+            </div>
+            <div class="p-5">
+              <h3 class="text-[15px] font-semibold text-slate-900 mb-1.5">AC Installation</h3>
+              <p class="text-[13.5px] text-slate-600 leading-[1.6] mb-3">Professional installation for maximum comfort and efficiency.</p>
+              <span class="inline-flex items-center gap-1 text-[13px] font-medium text-brand-blue">
+                Learn more
+                <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="#request-service" class="service-card group rounded-lg border border-slate-200/80 bg-white overflow-hidden transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-[0_4px_20px_-8px_rgba(15,23,42,0.08)]">
+            <div class="aspect-[16/10] overflow-hidden bg-slate-100">
+              <img alt="Furnace and heating system service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRV_dFbJQw299oCE7UEGEEWc568bAGXuAdu5sPxi5nPjfmol5yNrKsByXLDQ0Bvrj1I3Emx5UwrsWKVclOeUv7lHTw84PCzCewdbJJd58id8HxzaR_mkeK2B6vaWJVKjZdqDuBeO-nkXtgIJU4L84thYQtclzGOSHMPkiKf2dX41lc9nNbZ9bo2hlv-lkkoDW-R-GBd6xsXF-0RPfYaxalbTaTzP_S_yvnf8t4OsVo"/>
+            </div>
+            <div class="p-5">
+              <h3 class="text-[15px] font-semibold text-slate-900 mb-1.5">Heating Services</h3>
+              <p class="text-[13.5px] text-slate-600 leading-[1.6] mb-3">Keep your home warm and comfortable all winter long.</p>
+              <span class="inline-flex items-center gap-1 text-[13px] font-medium text-brand-blue">
+                Learn more
+                <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="#request-service" class="service-card group rounded-lg border border-slate-200/80 bg-white overflow-hidden transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-[0_4px_20px_-8px_rgba(15,23,42,0.08)]">
+            <div class="aspect-[16/10] overflow-hidden bg-slate-100">
+              <img alt="Smart thermostat and HVAC maintenance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCexWMV_nhI12zmqtvRMcE2Ktyr-Z-p2_9O2cjzSRhrNdKjqNv-5w_NeExF6IE9jMMCFC0bm9urj9sw-cfcuwYixm5wiN11QpJXwh0LVpksZ8C-8NSaUwI_xEPxqlLWz0nCdI2hd3KN14g6dPh0yTs1snpqrZiPc1f-kpvHQ04p7WnGQEY48lLA7-g8XMqeiAyEqn_AVH2imQQWj1tIDwZyoY3upgRcvpC9Mh23iM8"/>
+            </div>
+            <div class="p-5">
+              <h3 class="text-[15px] font-semibold text-slate-900 mb-1.5">HVAC Maintenance</h3>
+              <p class="text-[13.5px] text-slate-600 leading-[1.6] mb-3">Regular maintenance for better performance and longevity.</p>
+              <span class="inline-flex items-center gap-1 text-[13px] font-medium text-brand-blue">
+                Learn more
+                <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM + FINANCING (Liquid Glass Cards) -->
+    <section class="py-16 sm:py-20 lg:py-24 bg-brand-navy text-white" id="request-service">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+
+          <div class="lg:col-span-7 glass-panel-dark rounded-xl p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <h2 class="text-[22px] sm:text-[26px] font-semibold tracking-[-0.01em] text-white mb-2">Let's get your comfort back.</h2>
+              <p class="text-slate-400 text-[14px] mb-6 leading-relaxed">Tell us what you need help with and our team will follow up.</p>
+
+              <form id="requestForm" class="space-y-3.5" novalidate>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <div>
+                    <label class="block text-[12px] font-medium text-slate-400 mb-1.5" for="fullName">Full name</label>
+                    <input id="fullName" name="fullName" required class="w-full h-10 px-3 rounded-md bg-white text-slate-900 text-[14px] border-0 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue transition-shadow" placeholder="John Doe" type="text"/>
+                  </div>
+                  <div>
+                    <label class="block text-[12px] font-medium text-slate-400 mb-1.5" for="phone">Phone number</label>
+                    <input id="phone" name="phone" required class="w-full h-10 px-3 rounded-md bg-white text-slate-900 text-[14px] border-0 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue transition-shadow" placeholder="(281) 000-0000" type="tel"/>
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <div>
+                    <label class="block text-[12px] font-medium text-slate-400 mb-1.5" for="email">Email address</label>
+                    <input id="email" name="email" required class="w-full h-10 px-3 rounded-md bg-white text-slate-900 text-[14px] border-0 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue transition-shadow" placeholder="john@example.com" type="email"/>
+                  </div>
+                  <div>
+                    <label class="block text-[12px] font-medium text-slate-400 mb-1.5" for="service">Service required</label>
+                    <select id="service" name="service" required class="w-full h-10 px-3 rounded-md bg-white text-slate-900 text-[14px] border-0 focus:outline-none focus:ring-2 focus:ring-brand-blue transition-shadow">
+                      <option disabled selected value="">Select a service</option>
+                      <option value="ac-repair">AC Repair</option>
+                      <option value="ac-installation">AC Installation</option>
+                      <option value="heating">Heating Services</option>
+                      <option value="maintenance">HVAC Maintenance</option>
+                      <option value="other">Other Inquiry</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-[12px] font-medium text-slate-400 mb-1.5" for="description">Brief description</label>
+                  <textarea id="description" name="description" required rows="3" class="w-full px-3 py-2.5 rounded-md bg-white text-slate-900 text-[14px] border-0 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue resize-none transition-shadow" placeholder="Tell us about your HVAC issue..."></textarea>
+                </div>
+                <button id="submitBtn" type="submit" class="inline-flex items-center justify-center h-10 px-4 bg-brand-blue hover:bg-brand-blueHover text-white font-medium rounded-md text-[14px] transition-colors shadow-sm">
+                  <span id="submitLabel">Request service</span>
+                </button>
+              </form>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-5 pt-4 border-t border-white/[0.06]">This is a demo form and does not submit to our team.</p>
+          </div>
+
+          <div id="financing" class="lg:col-span-5 relative glass-panel-dark rounded-xl overflow-hidden flex flex-col justify-end p-7 sm:p-8 min-h-[280px] bg-cover bg-center"
+               style="background-image: linear-gradient(to top, rgba(10,22,40,0.95) 0%, rgba(10,22,40,0.5) 55%, rgba(10,22,40,0.2) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuAj282BnijaAMoF7Zf57VrlE7xLUWBwNf1UikmDpBdX66MFOcEELJTv1SYSTdPlYGm5HpXuYe2VTkrtQg6-kBPse9gJj1VfGlWyaXAThfs7k5977mhOhWHtbl9dZJlZann4VpCH5O_YOWIkZJnkhlPQOJeWOhor5VdyfoINsv_lSg2X9iDJf_IAWtLUhE6kVaF8fegTTM8tUqj41_YCCDC9P7y8ZE0AE6Gzhc8bC9ks');">
+            <div class="relative z-10">
+              <h3 class="text-[22px] sm:text-[26px] font-semibold text-white tracking-[-0.01em] leading-[1.2] mb-3">Explore financing options</h3>
+              <p class="text-slate-300 text-[13.5px] leading-[1.6] mb-5">Review available financing when considering an HVAC repair, installation, or replacement.</p>
+              <a href="#contact" class="glass-button inline-flex items-center justify-center h-9 px-3.5 text-white font-medium rounded-md text-[13px]">View options</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="py-16 sm:py-20 lg:py-24 bg-white" id="about">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+
+          <div class="lg:col-span-6">
+            <h2 class="text-[28px] sm:text-[32px] md:text-[36px] font-semibold text-slate-900 tracking-[-0.02em] leading-[1.15]">
+              Your local heating and cooling team.
+            </h2>
+            <p class="mt-4 text-[15px] sm:text-[16px] text-slate-600 leading-[1.65]">
+              Ace Comfort Air Conditioning &amp; Heating provides professional HVAC services to homeowners in Houston, TX. We're committed to reliable service, expert workmanship, and comfort you can count on.
+            </p>
+
+            <div class="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+              <div class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-brand-blue shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-[13.5px] text-slate-700">Residential HVAC expertise</span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-brand-blue shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-[13.5px] text-slate-700">Licensed &amp; insured</span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-brand-blue shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-[13.5px] text-slate-700">Local Houston team</span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-brand-blue shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-[13.5px] text-slate-700">Quality service &amp; support</span>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <a href="#contact" class="inline-flex items-center justify-center h-10 px-4 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-900 font-medium rounded-md text-[14px] transition-colors">
+                Learn more about us
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6">
+            <div class="rounded-xl overflow-hidden ring-1 ring-slate-200/70 shadow-sm">
+              <img alt="Ace Comfort service van parked at a residential property"
+                class="w-full h-auto object-cover"
+                loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsqZtoR4EJSlxZtpJ4qHxKUigKsu6i1jc3GhR26qXOsIkbxuBrh96xW1yJzg1iUcV9xB7ljc6Ab6ywDa_SFfyshWjt3xYhYn8fs7DI3mGhHkVHcz3i6VFdb8NE3rDAMz6MxncKzaE4FBVv9_1c_V8To_t1OcGzlZf1ojuFOIzCsgl9Epveb3ZWy-GpwDjhHJDH5vS6dKPwe_GlNnmKtx5uRZe6vf9g3-j2tPjlmos1"/>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-16 sm:py-20 bg-slate-50 border-y border-slate-200/70">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+        <div>
+          <h3 class="text-[24px] sm:text-[28px] font-semibold text-slate-900 tracking-[-0.01em]">What customers say</h3>
+        </div>
+
+        <div class="relative flex items-center justify-between gap-2 sm:gap-6 mt-8">
+
+          <button id="prevTestimonial" aria-label="Previous testimonial" class="shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-white hover:shadow-sm transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+
+          <div class="relative flex-1 min-h-[170px] sm:min-h-[150px]">
+            <div class="testimonial-slide active" data-index="0">
+              <p class="text-[15px] sm:text-[17px] text-slate-800 leading-[1.65]">
+                "The team at Ace Comfort was professional, knowledgeable, and got our AC running perfectly. Highly recommend."
+              </p>
+              <p class="mt-4 text-[12px] font-medium text-slate-500 uppercase tracking-wide">Homeowner in Houston</p>
+            </div>
+            <div class="testimonial-slide" data-index="1">
+              <p class="text-[15px] sm:text-[17px] text-slate-800 leading-[1.65]">
+                "Fast response, fair pricing, and they explained everything clearly. Our new system works great."
+              </p>
+              <p class="mt-4 text-[12px] font-medium text-slate-500 uppercase tracking-wide">Houston Heights Resident</p>
+            </div>
+            <div class="testimonial-slide" data-index="2">
+              <p class="text-[15px] sm:text-[17px] text-slate-800 leading-[1.65]">
+                "Reliable service year after year. Ace Comfort is the only HVAC company I trust with my home."
+              </p>
+              <p class="mt-4 text-[12px] font-medium text-slate-500 uppercase tracking-wide">Spring Branch Homeowner</p>
+            </div>
+          </div>
+
+          <button id="nextTestimonial" aria-label="Next testimonial" class="shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-white hover:shadow-sm transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
+
+        </div>
+
+        <div id="testimonialDots" class="flex justify-center items-center gap-1.5 mt-6">
+          <button data-dot="0" aria-label="Testimonial 1" class="testimonial-dot h-1.5 w-5 rounded-full bg-brand-blue"></button>
+          <button data-dot="1" aria-label="Testimonial 2" class="testimonial-dot h-1.5 w-1.5 rounded-full bg-slate-300 hover:bg-slate-400"></button>
+          <button data-dot="2" aria-label="Testimonial 3" class="testimonial-dot h-1.5 w-1.5 rounded-full bg-slate-300 hover:bg-slate-400"></button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-16 sm:py-20 bg-brand-navy text-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-[26px] sm:text-[32px] font-semibold tracking-[-0.02em] text-white leading-[1.2]">
+          Need help with your heating or cooling system?
+        </h2>
+        <p class="mt-3 text-[14.5px] sm:text-[15.5px] text-slate-400 max-w-xl mx-auto leading-[1.6]">
+          Tell us what you need or contact Ace Comfort to discuss your HVAC needs.
+        </p>
+        <div class="mt-7 flex flex-col sm:flex-row justify-center items-center gap-2.5">
+          <a href="#request-service" class="w-full sm:w-auto inline-flex items-center justify-center h-11 px-5 bg-brand-blue hover:bg-brand-blueHover text-white font-medium rounded-md text-[14px] transition-colors shadow-sm">Request service</a>
+          <a href="tel:2816585141" class="w-full sm:w-auto glass-button inline-flex items-center justify-center gap-2 h-11 px-5 text-white font-medium rounded-md text-[14px]">
+            <svg class="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            (281) 658-5141
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200/70" id="contact">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+
+      <div class="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-6 pb-12">
+
+        <div class="col-span-2 md:col-span-5">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-md bg-brand-blue flex items-center justify-center shadow-sm">
+              <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 20h20L12 2z"/></svg>
+            </div>
+            <div class="flex flex-col leading-none">
+              <span class="text-[14px] font-semibold tracking-tight text-slate-900">Ace Comfort</span>
+              <span class="text-[9px] uppercase tracking-[0.14em] font-medium text-slate-500 mt-1">Air Conditioning &amp; Heating</span>
+            </div>
+          </div>
+
+          <p class="mt-5 text-[13px] text-slate-600 leading-[1.65] max-w-xs">
+            Reliable heating and cooling solutions for your home in Houston and surrounding communities.
+          </p>
+
+          <div class="mt-5 space-y-1.5 text-[13px] text-slate-600">
+            <p class="flex items-start gap-2">
+              <svg class="w-3.5 h-3.5 mt-0.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              001 Milwaukee St, Houston, TX 77009
+            </p>
+            <p class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              <a class="hover:text-brand-blue transition-colors" href="tel:2816585141">(281) 658-5141</a>
+            </p>
+            <p class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <a class="hover:text-brand-blue transition-colors" href="mailto:service@acecomfort-tx.com">service@acecomfort-tx.com</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="md:col-span-2 md:col-start-7">
+          <h4 class="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-900 mb-3">Services</h4>
+          <ul class="space-y-2 text-[13px] text-slate-600">
+            <li><a class="hover:text-brand-blue transition-colors" href="#services">AC Repair</a></li>
+            <li><a class="hover:text-brand-blue transition-colors" href="#services">Installation</a></li>
+            <li><a class="hover:text-brand-blue transition-colors" href="#services">Heating</a></li>
+            <li><a class="hover:text-brand-blue transition-colors" href="#services">Maintenance</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-2">
+          <h4 class="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-900 mb-3">Company</h4>
+          <ul class="space-y-2 text-[13px] text-slate-600">
+            <li><a class="hover:text-brand-blue transition-colors" href="#home">Home</a></li>
+            <li><a class="hover:text-brand-blue transition-colors" href="#about">About</a></li>
+            <li><a class="hover:text-brand-blue transition-colors" href="#financing">Financing</a></li>
+            <li><a class="hover:text-brand-blue transition-colors" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-2">
+          <h4 class="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-900 mb-3">Connect</h4>
+          <div class="flex gap-1.5">
+            <a aria-label="Facebook" href="#" class="w-8 h-8 rounded-md border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-500 flex items-center justify-center transition-colors">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+            </a>
+            <a aria-label="Instagram" href="#" class="w-8 h-8 rounded-md border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-500 flex items-center justify-center transition-colors">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a aria-label="LinkedIn" href="#" class="w-8 h-8 rounded-md border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-500 flex items-center justify-center transition-colors">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+          </div>
+          <p class="mt-4 text-[10px] font-mono text-slate-400">TACLB64349E</p>
+        </div>
+
+      </div>
+
+      <div class="pt-6 border-t border-slate-200/70 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11.5px] text-slate-500">
+        <p>&copy; 2026 Ace Comfort Air Conditioning &amp; Heating</p>
+        <div class="flex gap-5">
+          <a href="#" class="hover:text-slate-900 transition-colors">Privacy</a>
+          <a href="#" class="hover:text-slate-900 transition-colors">Terms</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <div class="h-16 md:hidden" aria-hidden="true"></div>
+
+  <!-- MOBILE CTA BAR (Liquid Glass) -->
+  <div class="fixed bottom-0 inset-x-0 z-40 md:hidden glass-panel-light border-x-0 border-b-0 p-3 flex gap-2">
+    <a href="tel:2816585141" class="flex-1 inline-flex items-center justify-center gap-1.5 h-10 border border-slate-900/10 hover:bg-white/60 text-slate-800 font-medium rounded-md text-[13px] transition-colors">
+      <svg class="w-3.5 h-3.5 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+      Call
+    </a>
+    <a href="#request-service" class="flex-[1.4] inline-flex items-center justify-center h-10 bg-brand-blue hover:bg-brand-blueHover text-white font-medium rounded-md text-[13px] transition-colors shadow-sm">
+      Request service
+    </a>
+  </div>
+
+  <!-- BACK TO TOP (Liquid Glass) -->
+  <button id="backToTop" aria-label="Back to top"
+    class="fixed right-3 md:right-6 bottom-20 md:bottom-6 z-40 w-10 h-10 rounded-full glass-panel-light hover:bg-white/90 text-slate-600 hover:text-slate-900 flex items-center justify-center opacity-0 pointer-events-none translate-y-1 transition-all duration-200">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7M12 3v18"/></svg>
+  </button>
+
+  <script>
+  (function () {
+    'use strict';
+
+    const menu = document.getElementById('mobileMenu');
+    const panel = document.getElementById('mobileMenuPanel');
+    const backdrop = document.getElementById('mobileMenuBackdrop');
+    const menuToggle = document.getElementById('menuToggle');
+
+    function openMenu() {
+      menu.classList.remove('hidden');
+      menu.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => {
+        panel.classList.remove('translate-x-full');
+        backdrop.classList.remove('opacity-0');
+      });
+      menuToggle.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu() {
+      panel.classList.add('translate-x-full');
+      backdrop.classList.add('opacity-0');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      setTimeout(() => {
+        menu.classList.add('hidden');
+        menu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }, 300);
+    }
+    menuToggle?.addEventListener('click', openMenu);
+    document.querySelectorAll('[data-close-menu]').forEach(el => el.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 8) header.classList.add('shadow-[0_4px_24px_-4px_rgba(0,0,0,0.05)]');
+      else header.classList.remove('shadow-[0_4px_24px_-4px_rgba(0,0,0,0.05)]');
+    }, { passive: true });
+
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.testimonial-dot');
+    const prev = document.getElementById('prevTestimonial');
+    const next = document.getElementById('nextTestimonial');
+    let current = 0, autoplay;
+
+    function show(i) {
+      const total = slides.length;
+      current = (i + total) % total;
+      slides.forEach((s, idx) => s.classList.toggle('active', idx === current));
+      dots.forEach((d, idx) => {
+        const active = idx === current;
+        d.classList.toggle('bg-brand-blue', active);
+        d.classList.toggle('bg-slate-300', !active);
+        d.classList.toggle('w-5', active);
+        d.classList.toggle('w-1.5', !active);
+      });
+    }
+    function startAuto() { stopAuto(); autoplay = setInterval(() => show(current + 1), 6000); }
+    function stopAuto() { if (autoplay) clearInterval(autoplay); }
+
+    prev?.addEventListener('click', () => { show(current - 1); startAuto(); });
+    next?.addEventListener('click', () => { show(current + 1); startAuto(); });
+    dots.forEach((d, i) => d.addEventListener('click', () => { show(i); startAuto(); }));
+
+    const wrap = document.querySelector('.testimonial-slide')?.parentElement;
+    wrap?.addEventListener('mouseenter', stopAuto);
+    wrap?.addEventListener('mouseleave', startAuto);
+    startAuto();
+
+    const form = document.getElementById('requestForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitLabel = document.getElementById('submitLabel');
+
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      const origHTML = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-70', 'cursor-wait');
+      submitLabel.textContent = 'Sending...';
+
+      setTimeout(() => {
+        submitBtn.classList.remove('opacity-70', 'cursor-wait', 'bg-brand-blue', 'hover:bg-brand-blueHover');
+        submitBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+        submitBtn.innerHTML = `
+          <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
+          Request sent`;
+        submitBtn.disabled = false;
+
+        setTimeout(() => {
+          submitBtn.innerHTML = origHTML;
+          submitBtn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+          submitBtn.classList.add('bg-brand-blue', 'hover:bg-brand-blueHover');
+          form.reset();
+        }, 2600);
+      }, 700);
+    });
+
+    const top = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      const show = window.scrollY > 400;
+      top.classList.toggle('opacity-0', !show);
+      top.classList.toggle('pointer-events-none', !show);
+      top.classList.toggle('translate-y-1', !show);
+    }, { passive: true });
+    top?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  })();
+  </script>
+</body>
+          </html>
